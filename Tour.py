@@ -1,6 +1,3 @@
-import matplotlib.pyplot as plt
-import numpy as np
-
 from Point import Point
 
 class Node:
@@ -11,9 +8,21 @@ class Node:
         return self.point
 
 class Tour:
-    def __init(self):
+    def __init__(self):
         # initialize empty tour
         Tour.first = None
+
+    def __init__(self, a, b, c, d):
+        nodeA = Node(a)
+        nodeB = Node(b)
+        nodeC = Node(c)
+        nodeD = Node(d)
+        
+        self.first = nodeA
+        self.first.next = nodeB
+        nodeB.next = nodeC
+        nodeC.next = nodeD
+        nodeD.next = self.first
     
     def size(self):
         # return 0 for empty tour
@@ -23,7 +32,7 @@ class Tour:
         # traverse linked list
         current = self.first.next
         count = 1
-        while (current != self.fist):
+        while (current != self.first):
             count += 1
             current = current.next
         return count
@@ -39,6 +48,7 @@ class Tour:
             current = current.next
             if (current == self.first):
                 break
+        return length
 
     def draw(self):
         if (self.first == None):
@@ -62,11 +72,10 @@ class Tour:
             return
         
         # keep track of closest point and its distnace to p
-        closest = None
         minDist = float('inf')
         length = 0.0
 
-        current = first
+        current = self.first
         while (True):
             length = current.point.distanceTo(p.point)
             if (length < minDist):
@@ -89,8 +98,8 @@ class Tour:
             p.next = first
             return
         
-        current = first;
-        after = first;
+        current = self.first;
+        after = self.first;
         minIncrease = float('inf')
         increase = 0.0
         newDist = 0.0
@@ -107,4 +116,3 @@ class Tour:
                 break
         p.next = after.next
         after.next = p
-    

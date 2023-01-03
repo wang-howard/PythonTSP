@@ -20,6 +20,3 @@ class Point:
     
     def drawTo(self, other):
         plt.plot([self.x, other.x], [self.y, other.y])
-    
-
-    
