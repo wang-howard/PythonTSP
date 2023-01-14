@@ -9,8 +9,20 @@ the TSP. Takes no input and returns no output.
 """
 
 import math
-
 from Point import Point
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __repr__(self):
+        return "(" + str(self.x) + ", " + str(self.y) + ")\n"
+
+    def distanceTo(self, other):
+        dx = self.x - other.x
+        dy = self.y - other.y
+        return math.sqrt(dx ** 2 + dy ** 2)
 
 class Node:
     def __init__(self, pt):
