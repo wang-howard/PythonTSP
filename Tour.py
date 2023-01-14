@@ -10,7 +10,7 @@ class Node:
 class Tour:
     def __init__(self):
         # initialize empty tour
-        Tour.first = None
+        self.first = None
     
     def __repr__(self):
         if (self.first == None):
