@@ -1,3 +1,5 @@
+import math
+
 from Point import Point
 
 class Node:
@@ -19,7 +21,7 @@ class Tour:
         current = self.first
         points = ""
         while (True):
-            points += current.point
+            points += str(current.point)
             current = current.next
             if (current == self.first):
                 break
@@ -68,26 +70,26 @@ class Tour:
 
         # if tour is empty, insert as first node
         if (self.first == None):
-            first = p
-            p.next = first
+            self.first = p
+            p.next = self.first
             return
         
-        # keep track of closest point and its distnace to p
-        minDist = float('inf')
+        # keep track of closest point and its distance to p
+        minDist = math.inf
         length = 0.0
 
+        nearest = None
         current = self.first
         while (True):
-            length = current.point.distanceTo(p.point)
-            if (length < minDist):
+            if (current.point.distanceTo(p.point) < minDist):
                 minDist = length
-                closest = current
+                nearest = p
             current = current.next
             if (current == self.first):
                 break
         
-        p.next = closest.next
-        closest.next = p
+        p.next = nearest.next
+        nearest.next = p
     
     def insertSmallest(self, x):
         # create new node with point x
@@ -95,15 +97,14 @@ class Tour:
 
         # insert as first if tour is empty
         if (self.first == None):
-            first = p
-            p.next = first
+            self.first = p
+            p.next = self.first
             return
         
-        current = self.first;
-        after = self.first;
-        minIncrease = float('inf')
+        current = self.first
+        after = None
+        minIncrease = math.inf
         increase = 0.0
-        newDist = 0.0
 
         while (True):
             newDist = current.point.distanceTo(p.point) + current.next.point.distanceTo(p.point)
