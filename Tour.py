@@ -9,7 +9,6 @@ the TSP. Takes no input and returns no output.
 """
 
 import math
-from Point import Point
 
 class Point:
     def __init__(self, x, y):
@@ -98,15 +97,16 @@ class Tour:
         
         # keep track of closest point and its distance to p
         minDist = math.inf
-        length = 0.0
-
         nearest = None
         current = self.first
         while (True):
-            if (current.point.distanceTo(p.point) < minDist):
+            length = current.point.distanceTo(p.point)
+            if (length < minDist):
                 minDist = length
-                nearest = p
+                nearest = current
+            
             current = current.next
+
             if (current == self.first):
                 break
         

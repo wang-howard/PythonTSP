@@ -22,3 +22,4 @@ with open(fileName, 'r') as f:
 
 print("Number of Points: " + str(tour.size()))
 print("Tour Length: " + str(tour.length()))
+print(tour)
