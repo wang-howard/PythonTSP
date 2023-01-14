@@ -1,3 +1,12 @@
+"""
+Point.py
+Author: Howard Wang
+
+Custom 2D point object class defining the only function that is
+necessary for the Tour.py implementation to work properly. Takes no
+values and returns no values.
+"""
+
 import math
 import matplotlib.pyplot as plt
 
@@ -13,9 +22,3 @@ class Point:
         dx = self.x - other.x
         dy = self.y - other.y
         return math.sqrt(dx ** 2 + dy ** 2)
-    
-    def draw(self):
-        plt.plot(self.x, self.y)
-    
-    def drawTo(self, other):
-        plt.plot([self.x, other.x], [self.y, other.y])

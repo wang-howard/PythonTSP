@@ -1,3 +1,12 @@
+"""
+main.py
+Author: Howard Wang
+
+Testing module to test Tour.py methods with a static set of coded
+points. The value of the tour length is then compared to a Java
+implementation of TSP that is confirmed to be correctly implemented.
+"""
+
 from Point import Point
 from Tour import Tour
 

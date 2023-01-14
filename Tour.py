@@ -1,3 +1,13 @@
+"""
+Tour.py
+Author: Howard Wang
+
+Implementation of a Tour object class that includes two heuristics for
+solving the Traveling Salesperson Problem. Neither are optimal nor
+efficient heuristics but are simply examples of possible approaches to
+the TSP. Takes no input and returns no output. 
+"""
+
 import math
 
 from Point import Point
