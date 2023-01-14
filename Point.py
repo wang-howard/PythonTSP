@@ -1,6 +1,5 @@
 import math
 import matplotlib.pyplot as plt
-import numpy as np
 
 class Point:
     def __init__(self, x, y):
@@ -8,7 +7,7 @@ class Point:
         self.y = y
     
     def __repr__(self):
-        return "(" + str(self.x) + ", " + str(self.y) + ")"
+        return "(" + str(self.x) + ", " + str(self.y) + ")\n"
 
     def distanceTo(self, other):
         dx = self.x - other.x

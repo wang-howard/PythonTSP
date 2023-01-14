@@ -11,18 +11,19 @@ class Tour:
     def __init__(self):
         # initialize empty tour
         Tour.first = None
-
-    def __init__(self, a, b, c, d):
-        nodeA = Node(a)
-        nodeB = Node(b)
-        nodeC = Node(c)
-        nodeD = Node(d)
+    
+    def __repr__(self):
+        if (self.first == None):
+            return ""
         
-        self.first = nodeA
-        self.first.next = nodeB
-        nodeB.next = nodeC
-        nodeC.next = nodeD
-        nodeD.next = self.first
+        current = self.first
+        points = ""
+        while (True):
+            points += current.point
+            current = current.next
+            if (current == self.first):
+                break
+        return points
     
     def size(self):
         # return 0 for empty tour
